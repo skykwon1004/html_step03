@@ -1,0 +1,122 @@
+.bg {
+    position: relative;
+    height: 600px;
+    /* background-color: tomato;
+    background-image: url(../img/m01.jpg); */
+    /* 이미지가 반복된다 (패턴) */
+    /* background-repeat: no-repeat;
+    background-position: center center; */
+    /* background-position: right bottom; */
+    /* 이미지를 우측 하단에 놓을 때 */
+    /* background-size: cover; */
+    /* 백그라운드에 풀로 넣을 때 */
+
+    background: tomato url(../img/m01.jpg) no-repeat fixed center center/cover;
+    /* 외우기 ★ */
+
+    /* background-attachment: fixed; */
+    /* 스크롤 시 이미지 고정 */
+    margin: 0 0 2000px 0;
+}
+
+.bg::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background: linear-gradient(to left, transparent 30%, #444 70%);
+}
+
+figure {
+    width: 300px;
+    margin: 0 auto;
+}
+
+figure img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    /* 사이즈안에 안찌그러지게 알아서 잘리는것 , 동영상에도 적용 */
+}
+
+.video {
+    position: relative;
+}
+
+.video p {
+    position: absolute;
+    bottom: -50px;
+    right: 0;
+    font-size: 200px;
+    font-weight: 900;
+    color: #fff;
+}
+
+.video video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
+}
+
+.sun {
+    position: absolute;
+    top: 100px;
+    left: 100px;
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    background: #ff0;
+    animation: sunMove 2.5s linear infinite;
+    font-size: 0;
+}
+
+.sun::before {
+    content: "";
+    position: absolute;
+    top: calc(50% - 2px);
+    left: -60px;
+    width: 50px;
+    height: 4px;
+    border-radius: 2px;
+    background: #ff0;
+}
+
+.sun::after {
+    content: "";
+    position: absolute;
+    top: calc(50% - 2px);
+    right: -60px;
+    width: 50px;
+    height: 4px;
+    border-radius: 2px;
+    background: #ff0;
+}
+
+.sun span::before {
+    content: "";
+    position: absolute;
+    top: -60px;
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 50px;
+    border-radius: 2px;
+    background: #ff0;
+}
+
+.sun span::after {
+    content: "";
+    position: absolute;
+    bottom: -60px;
+    left: calc(50% - 2px);
+    width: 4px;
+    height: 50px;
+    border-radius: 2px;
+    background: #ff0;
+}
+
+@keyframes sunMove {
+    to {
+        transform: rotate(360deg);
+    }
+}
